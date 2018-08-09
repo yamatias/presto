@@ -287,6 +287,13 @@ public class TestThriftIndexPageSource
             return immediateFuture(pageResult(key * 10 + offset, newNextToken));
         }
 
+        @Override
+        public void addRows(PrestoThriftSchemaTableName schemaTableName, PrestoThriftPageResult page)
+                throws PrestoThriftServiceException
+        {
+            throw new UnsupportedOperationException();
+        }
+
         // methods below are not used for the test
 
         @Override

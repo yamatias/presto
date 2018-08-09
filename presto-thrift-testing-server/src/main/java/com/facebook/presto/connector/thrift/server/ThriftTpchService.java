@@ -183,6 +183,13 @@ public class ThriftTpchService
         return executor.submit(() -> getRowsSync(splitId, outputColumns, maxBytes, nextToken));
     }
 
+    @Override
+    public void addRows(PrestoThriftSchemaTableName schemaTableName, PrestoThriftPageResult page)
+            throws PrestoThriftServiceException
+    {
+        throw new PrestoThriftServiceException("Insert not supported", false);
+    }
+
     private PrestoThriftPageResult getRowsSync(
             PrestoThriftId splitId,
             List<String> outputColumns,
